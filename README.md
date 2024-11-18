@@ -1,3 +1,5 @@
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue?logo=github)](https://github.com/masoud-Tesna/react-tesna-utils)
+
 ### Function: `convertTimeToMilliseconds`
 
 #### Description:

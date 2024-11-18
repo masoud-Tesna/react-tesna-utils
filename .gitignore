@@ -120,3 +120,4 @@ package-lock.json
 #.env.production
 
 .husky
+./dist

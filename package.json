@@ -12,6 +12,10 @@
     "react",
     "utils"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/masoud-Tesna/react-tesna-utils"
+  },
   "author": "Masoud bayat",
   "license": "MIT",
   "dependencies": {
