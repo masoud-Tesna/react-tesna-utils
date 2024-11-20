@@ -716,3 +716,54 @@ console.log(result);
 
 This utility is helpful for scenarios where you need to filter out unchanged or duplicate data in hierarchical structures, such as processing configuration files or
 response data.
+
+### Function: `useCopy`
+
+The `useCopy` custom hook simplifies copying text to the clipboard in a React application. It handles the logic for copying, loading states, and resetting the state after
+a
+delay.
+
+#### Features
+
+- Loading State: Indicates when the copy action is in progress.
+- Copied State: Tracks if the text was successfully copied.
+- Timeout Handling: Automatically resets the copied state after 2 seconds.
+- Clipboard API Integration: Uses the browser's Clipboard API for copying text.
+
+#### Hook API
+
+- `isCopied`: A `boolean` indicating whether the text has been successfully copied.
+- `isCopyLoading`: A `boolean` indicating if the copying process is in progress.
+- `copyText`: A function that takes a string (`text`) and attempts to copy it to the clipboard.
+
+#### Usage
+
+```tsx
+import { useCopy } from 'react-tesna-utils';
+
+const CopyExample = () => {
+  const { isCopied, isCopyLoading, copyText } = useCopy();
+  
+  return (
+    <div>
+      <button
+        onClick={ () => copyText('Hello, World!') }
+        disabled={ isCopyLoading }
+      >
+        { isCopyLoading ? 'Copying...' : isCopied ? 'Copied!' : 'Copy Text' }
+      </button>
+    </div>
+  );
+};
+
+export default CopyExample;
+```
+
+#### Additional Notes:
+
+- Clipboard Support: The hook uses the `navigator.clipboard` API, which is supported in most modern browsers. If the Clipboard API is not supported, it logs an error to
+  the
+  console and returns `false`.
+- Automatic Cleanup: The hook ensures the timeout is cleared when the component is unmounted to prevent memory leaks.
+
+This utility is perfect for creating user-friendly interactions, such as "Copy to Clipboard" buttons.
