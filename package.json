@@ -1,7 +1,7 @@
 {
   "name": "react-tesna-utils",
   "version": "1.1.2",
-  "description": "A description of your React package",
+  "description": "A versatile utility library featuring optimized functions for data manipulation, clipboard handling, text truncation, comparison, validation, and more. Designed for modern JavaScript and TypeScript projects with efficient and reusable solutions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -9,8 +9,24 @@
     "prepare": "npm run build"
   },
   "keywords": [
-    "react",
-    "utils"
+    "utility-library",
+    "data-manipulation",
+    "clipboard",
+    "text-truncation",
+    "comparison-functions",
+    "validation",
+    "javascript-utilities",
+    "typescript-utilities",
+    "modern-web-development",
+    "custom-hooks",
+    "array-handling",
+    "string-manipulation",
+    "json-utilities",
+    "react-hooks",
+    "regex-validation",
+    "clipboard-api",
+    "nodejs-utilities",
+    "react-tesna-utils"
   ],
   "repository": {
     "type": "git",
