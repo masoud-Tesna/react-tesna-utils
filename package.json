@@ -18,6 +18,9 @@
   },
   "author": "Masoud bayat",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^18"
+  },
   "dependencies": {
     "lodash.isempty": "^4.4.0",
     "lodash.size": "^4.2.0",
