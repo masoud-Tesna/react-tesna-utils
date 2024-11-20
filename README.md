@@ -637,3 +637,82 @@ example();
 
 - The `duration` is in milliseconds, so `1000` represents a 1-second delay.
 - The function returns a `Promise`, making it useful for chaining with `async/await` or `.then()` for handling asynchronous flows.
+
+### Function: `deepCompareAndRemove`
+
+This function compares two objects or arrays deeply. It removes keys from the first object (`obj1`) if their values match in the second object (`obj2`). If `obj2` is not
+provided, the function returns the entire `obj1`. The function can handle nested objects and arrays.
+
+#### Parameters:
+
+- `obj1`: The main object or array to process.
+- `obj2` (optional): The reference object or array to compare against.
+
+#### Returns
+
+- A new object or array with keys or elements removed from `obj1` based on the comparison with `obj2`.
+
+#### Features
+
+- Recursively compares nested objects and arrays.
+- Deletes keys or elements if they are deeply equal.
+- Removes top-level empty objects or arrays from the result.
+
+#### Usage
+
+```typescript
+import { deepCompareAndRemove } from 'react-tesna-utils';
+
+const obj1 = {
+  name: "Alice",
+  age: 30,
+  address: {
+    city: "New York",
+    zip: 10001,
+    additional: {
+      info: "Apartment 12B",
+      details: null,
+    },
+  },
+  hobbies: [ "reading", "sports", "coding" ],
+};
+
+const obj2 = {
+  name: "Alice",
+  address: {
+    city: "New York",
+    additional: {
+      info: "Apartment 12B",
+    },
+  },
+  hobbies: [ "reading", "sports" ],
+};
+
+const result = deepCompareAndRemove(obj1, obj2);
+
+console.log(result);
+/*
+{
+  age: 30,
+  address: {
+    zip: 10001,
+    additional: {
+      details: null,
+    },
+  },
+  hobbies: ["coding"],
+}
+*/
+```
+
+#### How It Works:
+
+1. Compares obj1 and obj2 key by key.
+2. If the value of a key in `obj1` matches the corresponding value in `obj2`, the key is removed.
+3. For nested objects or arrays, it calls itself recursively.
+4. Cleans up empty objects or arrays after processing.
+
+#### Note:
+
+This utility is helpful for scenarios where you need to filter out unchanged or duplicate data in hierarchical structures, such as processing configuration files or
+response data.
