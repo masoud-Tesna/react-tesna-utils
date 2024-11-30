@@ -4,6 +4,11 @@
   "description": "A versatile utility library featuring optimized functions for data manipulation, clipboard handling, text truncation, comparison, validation, and more. Designed for modern JavaScript and TypeScript projects with efficient and reusable solutions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build"
@@ -45,21 +50,9 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.17.13",
-    "@babel/cli": "7.25.9",
-    "@babel/preset-env": "7.26.0",
-    "@babel/preset-react": "7.25.9",
     "@types/node": "^20.14.11",
     "@types/react": "^18.3.12",
-    "@types/react-dom": "^18.3.1",
-    "@typescript-eslint/eslint-plugin": "^8.11.0",
-    "@typescript-eslint/parser": "^8.11.0",
     "eslint": "^9.1.1",
-    "eslint-config-next": "14.2.16",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "prettier": "^3.3.3",
     "typescript": "5.2.2"
   }
 }
