@@ -880,8 +880,47 @@ const Demo = () => {
 ## Reference
 
 ```typescript
-useLockBodyScroll(locked:boolean = true, elementRef ? : RefObject<HTMLElement>);
+useLockBodyScroll(locked
+:
+boolean = true, elementRef ? : RefObject<HTMLElement>
+)
+;
 ```
 
 - `locked` &mdash; Hook will lock scrolling on the body element if `true`, defaults to `true`
 - `elementRef` &mdash; The element ref object to find the body element. Can be either a ref to body or iframe element.
+
+***
+
+# `useKeyPress`
+
+The `useKeyPress()` hook listens for a specific combination of keys and runs a callback when they are all pressed. It normalizes keys for
+case-insensitive matching and handles cases like key holding or focus loss to ensure smooth behavior.
+
+## Usage
+
+```jsx
+import {useKeyPress} from 'react-tesna-utils';
+import {useState} from 'react';
+
+const Demo = () => {
+  const [didKeyPress, setDidKeyPress] = useState(false);
+  useKeyPress(['Control', 'Shift', 'A'], (e) => {
+    setDidKeyPress(true);
+  });
+
+  return (
+    <div>
+      <p>Press Control + Shift + A</p>
+      {didKeyPress && <p>{`You pressed : Control + Shift + A`}</p>}
+    </div>
+  );
+};
+```
+
+- `keys` - An array of key names (case-insensitive) that should be pressed to trigger the callback
+- `callback` - The function to be executed when specified keys are pressed.
+
+## Returns
+
+- `void` - This hook does not return anything.
