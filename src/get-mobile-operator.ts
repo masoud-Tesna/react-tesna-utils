@@ -51,14 +51,9 @@ export const getMobileOperator = (mobile: string): string => {
   // Removing non -numeric characters (such as distance, dash, etc.)
   let cleaned = mobile.replace(/\D/g, '');
 
-  // If the number starts with 98 and is in international format (no +), we turn it into internal format (with 0)
-  if (cleaned.startsWith("98") && cleaned.length === 12) {
-    cleaned = "0" + cleaned.substring(2);
-  }
-
   // Mobile Number Review: Must be 11 digits and start with "09"
-  if (cleaned.length !== 11 || !cleaned.startsWith("09")) {
-    return "شماره موبایل نامعتبر";
+  if (!cleaned.startsWith("09")) {
+    return '';
   }
 
   // Extraction of pre -number (first 4 digits)
