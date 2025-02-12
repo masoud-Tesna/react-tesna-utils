@@ -1,6 +1,6 @@
 {
   "name": "react-tesna-utils",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "A versatile utility library featuring optimized functions for data manipulation, clipboard handling, text truncation, comparison, validation, and more. Designed for modern JavaScript and TypeScript projects with efficient and reusable solutions.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
