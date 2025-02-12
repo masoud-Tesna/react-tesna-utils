@@ -28,4 +28,5 @@ export {toLowercase} from './to-lowercase';
 export {deepCompareAndRemove} from './deep-compare-and-remove';
 export {copyToClipboard} from './use-copy';
 export {useKeyPress} from './use-key-press';
+export {getMobileOperator} from './get-mobile-operator';
 export {default as useLockBodyScroll} from './use-lock-body-scroll';

@@ -880,11 +880,7 @@ const Demo = () => {
 ## Reference
 
 ```typescript
-useLockBodyScroll(locked
-:
-boolean = true, elementRef ? : RefObject<HTMLElement>
-)
-;
+useLockBodyScroll(locked /* true or false*/, elementRef /*RefObject<HTMLElement>*/);
 ```
 
 - `locked` &mdash; Hook will lock scrolling on the body element if `true`, defaults to `true`
@@ -924,3 +920,52 @@ const Demo = () => {
 ## Returns
 
 - `void` - This hook does not return anything.
+
+***
+
+# `mobileOperators`
+
+This is a TypeScript function that takes an Iranian mobile number as input and identifies the corresponding mobile operator by examining
+the number's prefix. If the prefix matches one of the predefined mappings, the function returns the operator's name (e.g., Hamrah Aval, Irancell,
+Shatel or Rightel). Otherwise, it returns an error message such as "Invalid mobile number" or "Unknown operator".
+
+## Features
+
+- Input Cleanup:
+  The function removes any non-numeric characters (like spaces or hyphens) from the input number.
+
+- Format Conversion:
+  If the number is provided in international format (e.g., starting with 98 and having 12 digits), it converts the number into the local format (
+  beginning with 0).
+
+- Validation:
+  The mobile number must consist of exactly 11 digits and start with 09. If not, the function returns an error message indicating the number is
+  invalid.
+
+- Operator Detection:
+  The function extracts the first four digits of the cleaned number and uses a predefined mapping to determine the corresponding mobile operator.
+
+## Operator Mapping
+
+The following mappings are defined in the example:
+
+- Hamrah Aval:
+  Mobile numbers starting with any of the prefixes from 0910 to 0919.
+
+- Rightel:
+  Mobile numbers starting with any of the prefixes from 0920 to 0929.
+
+- Irancell:
+  Mobile numbers starting with one of the following prefixes: 0930, 0933, 0935, 0936, 0937, 0938, or 0939.
+
+## Usage
+
+```jsx
+import {getMobileOperator} from 'react-tesna-utils';
+
+console.log(getMobileOperator("09121234567")); // Hamrah Aval
+console.log(getMobileOperator("+989351234567")); // Irancell
+console.log(getMobileOperator("09211234567")); // Rightel
+console.log(getMobileOperator("09001234567")); // Unknown operator or Invalid mobile number
+// ;
+```
