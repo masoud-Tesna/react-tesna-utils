@@ -11,7 +11,7 @@ is useful for standardizing time values across various formats.
 ## Example:
 
 ```typescript
-import {convertTimeToMilliseconds} from 'react-tesna-utils';
+import { convertTimeToMilliseconds } from 'react-tesna-utils';
 
 // Convert 5 seconds to milliseconds
 const timeInMilliseconds1 = convertTimeToMilliseconds(5, 's'); // Output: 5000
@@ -45,7 +45,7 @@ Calculates a deadline timestamp based on the current time and a provided time du
 ## Usage
 
 ```typescript
-import {fn_deadline} from 'react-tesna-utils';
+import { fn_deadline } from 'react-tesna-utils';
 
 // Calculate a deadline 2 hours, 30 minutes, and 45 seconds from the current time
 const deadlineTimestamp = fn_deadline("02:30:45");
@@ -63,7 +63,7 @@ Formats a credit card or similar numeric string by adding hyphens every four dig
 ## Usage
 
 ```typescript
-import {formatCadNumber} from 'react-tesna-utils';
+import { formatCadNumber } from 'react-tesna-utils';
 
 // Format a 16-digit card number
 const formattedCardNumber = formatCadNumber("1234567812345678");
@@ -83,7 +83,7 @@ Formats a number as a localized string with up to 10 decimal places, using the u
 ## Usage
 
 ```typescript
-import {formatNumber} from 'react-tesna-utils';
+import { formatNumber } from 'react-tesna-utils';
 
 // Format a number
 const formattedNumber = formatNumber(1234567.890123);
@@ -103,7 +103,7 @@ Formats a phone number string by cleaning non-numeric characters and arranging i
 ## Usage
 
 ```typescript
-import {formatPhoneNumber} from 'react-tesna-utils';
+import { formatPhoneNumber } from 'react-tesna-utils';
 
 // Format a phone number with extra characters
 const formattedPhoneNumber = formatPhoneNumber('0912-345-6789');
@@ -127,7 +127,7 @@ Generates a random integer between the specified minimum and maximum values (inc
 ## Usage
 
 ```typescript
-import {generateRandomNumber} from 'react-tesna-utils';
+import { generateRandomNumber } from 'react-tesna-utils';
 
 // Generate a random number between 1 and 10
 const randomNum = generateRandomNumber(1, 10);
@@ -161,7 +161,7 @@ uploading or inline embedding.
 ## Usage
 
 ```typescript
-import {getBase64} from 'react-tesna-utils';
+import { getBase64 } from 'react-tesna-utils';
 
 // Example usage
 const handleFile = async (file: File) => {
@@ -197,7 +197,7 @@ Splits a string into an array of substrings, each of a specified chunk size.
 ## Usage
 
 ```typescript
-import {getChunksFromString} from 'react-tesna-utils';
+import { getChunksFromString } from 'react-tesna-utils';
 
 const longString = "This is a long string that needs to be chunked.";
 const chunked = getChunksFromString(longString, 10);
@@ -232,7 +232,7 @@ Checks if the given string contains only English characters, spaces, digits, and
 ## Usage
 
 ```typescript
-import {isAllEnglishCharacters} from 'react-tesna-utils';
+import { isAllEnglishCharacters } from 'react-tesna-utils';
 
 const input1 = "Hello, World!";
 const input2 = "مرحبا بالعالم";
@@ -270,7 +270,7 @@ Checks if the given string contains only Persian characters, spaces, digits, and
 ## Usage
 
 ```typescript
-import {isAllPersianCharacters} from 'react-tesna-utils';
+import { isAllPersianCharacters } from 'react-tesna-utils';
 
 const input1 = "سلام دنیا!";
 const input2 = "Hello World!";
@@ -306,7 +306,7 @@ Compares two arrays to determine if they are equal, taking into account both the
 ## Usage
 
 ```typescript
-import {isArrayEqual} from 'react-tesna-utils';
+import { isArrayEqual } from 'react-tesna-utils';
 
 const array1 = [1, 2, 3];
 const array2 = [1, 2, 3];
@@ -343,7 +343,7 @@ Checks if the given string contains at least one English character.
 ## Usage
 
 ```typescript
-import {isContainsEnglishCharacter} from 'react-tesna-utils';
+import { isContainsEnglishCharacter } from 'react-tesna-utils';
 
 const str1 = "Hello, world!";
 const str2 = "مرحبا بالعالم";
@@ -374,7 +374,7 @@ Checks if the given string contains at least one Persian character.
 ## Usage
 
 ```typescript
-import {isContainsPersianCharacter} from 'react-tesna-utils';
+import { isContainsPersianCharacter } from 'react-tesna-utils';
 
 const str1 = "سلام دنیا";
 const str2 = "Hello World";
@@ -406,7 +406,7 @@ Checks if the provided string is a valid JSON string.
 ## Usage
 
 ```typescript
-import {isJson} from 'react-tesna-utils';
+import { isJson } from 'react-tesna-utils';
 
 const validJson = '{"name": "John", "age": 30}';
 const invalidJson = '{name: John, age: 30}';
@@ -440,7 +440,7 @@ Checks if the provided value is a valid number.
 ## Usage
 
 ```typescript
-import {isNumber} from 'react-tesna-utils';
+import { isNumber } from 'react-tesna-utils';
 
 console.log(isNumber(123));      // Output: true
 console.log(isNumber('123'));    // Output: true
@@ -472,7 +472,7 @@ Validates if the provided string is a valid email address.
 ## Usage
 
 ```typescript
-import {isValidEmail} from 'react-tesna-utils';
+import { isValidEmail } from 'react-tesna-utils';
 
 console.log(isValidEmail('test@example.com'));    // Output: true
 console.log(isValidEmail('invalid-email.com'));   // Output: false
@@ -503,7 +503,7 @@ Validates if the provided number or string is a valid Iranian national code (ID)
 ## Usage
 
 ```typescript
-import {isValidNationalCode} from 'react-tesna-utils';
+import { isValidNationalCode } from 'react-tesna-utils';
 
 console.log(isValidNationalCode('1234567890'));  // Output: false (example invalid code)
 console.log(isValidNationalCode('1234567891'));  // Output: true  (example valid code)
@@ -535,7 +535,7 @@ objects.
 ## Usage
 
 ```typescript
-import {removeEmptyKeys} from 'react-tesna-utils';
+import { removeEmptyKeys } from 'react-tesna-utils';
 
 // Example with an object
 const obj = {
@@ -550,7 +550,7 @@ console.log(cleanedObj);
 // Output: { name: 'John', country: 'USA' }
 
 // Example with an array
-const arr = [{}, 'hello', {name: 'Alice'}, ''];
+const arr = [{}, 'hello', { name: 'Alice' }, ''];
 
 const cleanedArr = removeEmptyKeys(arr);
 console.log(cleanedArr);
@@ -585,13 +585,13 @@ structures as well.
 ## Usage
 
 ```typescript
-import {removeNullsFromArray} from 'react-tesna-utils';
+import { removeNullsFromArray } from 'react-tesna-utils';
 
 // Example with an object
 const obj = {
   name: 'John',
   age: null,
-  address: {city: 'New York', zip: null},
+  address: { city: 'New York', zip: null },
   country: 'USA'
 };
 
@@ -600,7 +600,7 @@ console.log(cleanedObj);
 // Output: { name: 'John', address: { city: 'New York' }, country: 'USA' }
 
 // Example with an array
-const arr = [null, 'hello', null, [null, 'world'], {key: null, value: 'test'}];
+const arr = [null, 'hello', null, [null, 'world'], { key: null, value: 'test' }];
 
 const cleanedArr = removeNullsFromArray(arr);
 console.log(cleanedArr);
@@ -635,10 +635,10 @@ where only the start and end portions are needed.
 ## Usage
 
 ```typescript
-import {truncatedMiddleText} from 'react-tesna-utils';
+import { truncatedMiddleText } from 'react-tesna-utils';
 
 // Example 1: Basic usage
-const result1 = truncatedMiddleText({text: 'This is a very long sentence that needs truncation.'});
+const result1 = truncatedMiddleText({ text: 'This is a very long sentence that needs truncation.' });
 console.log(result1);
 // Output: 'This ...n.' (5 characters from the start and 15 characters from the end)
 
@@ -683,7 +683,7 @@ code.
 ## Usage
 
 ```typescript
-import {wait} from 'react-tesna-utils';
+import { wait } from 'react-tesna-utils';
 
 // Example 1: Using wait for a delay in an async function
 async function example() {
@@ -732,7 +732,7 @@ provided, the function returns the entire `obj1`. The function can handle nested
 ## Usage
 
 ```typescript
-import {deepCompareAndRemove} from 'react-tesna-utils';
+import { deepCompareAndRemove } from 'react-tesna-utils';
 
 const obj1 = {
   name: "Alice",
@@ -814,10 +814,10 @@ delay.
 ## Usage
 
 ```tsx
-import {useCopy} from 'react-tesna-utils';
+import { useCopy } from 'react-tesna-utils';
 
 const CopyExample = () => {
-  const {isCopied, isCopyLoading, copyText} = useCopy();
+  const { isCopied, isCopyLoading, copyText } = useCopy();
 
   return (
     <div>
@@ -1039,8 +1039,8 @@ instance to more than one ref (e.g., an external ref and a local ref within a co
 The following example demonstrates how to use composeRef in a functional component with forwardRef:
 
 ```tsx
-import React, {useRef, forwardRef} from 'react';
-import {composeRef} from 'react-tesna-utils';
+import React, { useRef, forwardRef } from 'react';
+import { composeRef } from 'react-tesna-utils';
 
 interface MyInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
@@ -1112,7 +1112,7 @@ API to ensure cross-browser compatibility.
 **Example Usage:**
 
 ```typescript
-import {enterFullScreen} from 'react-tesna-utils';
+import { enterFullScreen } from 'react-tesna-utils';
 // Assume you have an HTML element you want to display in full-screen mode.
 const videoElement = document.getElementById('myVideo') as HTMLElement;
 enterFullScreen(videoElement);
@@ -1140,7 +1140,91 @@ This function is used to exit full-screen mode. It similarly handles cross-brows
 **Example Usage:**
 
 ```typescript
-import {exitFullScreen} from 'react-tesna-utils';
+import { exitFullScreen } from 'react-tesna-utils';
 // When you want to exit full-screen mode, simply call the function.
 exitFullScreen();
 ```
+
+***
+
+### `trimStringsStructure`
+
+The `trimStringsStructure` function is a generic TypeScript utility that traverses a nested data structure (either an array or an object) and trims whitespace
+from any string values. It handles deeply nested structures by recursively processing objects and arrays.
+
+### How It Works
+
+1. **Array Handling**:
+
+* **Check if the input is an array** using `Array.isArray(input)`.
+* **Mapping Over Array Elements**:
+    * If an element is a string, it uses the built-in `trim()` method to remove leading and trailing whitespace.
+    * If an element is an object (and not null), it calls itself recursively to process that object.
+    * Otherwise, the element is returned unchanged.
+
+2. **Object Handling**:
+
+* **Check if the input is a non-null object**.
+* **Iterate through Object Properties**:
+    * For each property, if the value is a string, it trims the string.
+    * If the value is an object (and not null), it processes the object recursively.
+    * Other data types are copied directly without modification.
+
+3. **Base Case**:
+
+* If the input is neither an array nor a non-null object, the function simply returns the input unchanged.
+
+### Example Usage
+
+```typescript
+import { trimStringsStructure } from 'react-tesna-utils';
+
+// Example input object with nested arrays and objects
+const data = {
+  name: '  John Doe  ',
+  details: {
+    email: '  john@example.com  ',
+    hobbies: ['  Reading  ', '  Coding  ', '  Hiking  '],
+    address: {
+      street: '  123 Main St  ',
+      city: '  Anytown  ',
+    },
+  },
+  notes: [
+    '  Note 1  ',
+    { info: '  Additional Info  ' }
+  ]
+};
+
+// Process the data to trim all string values
+const trimmedData = trimStringsStructure(data);
+
+console.log(trimmedData);
+
+/* The output will be:
+{
+  name: 'John Doe',
+  details: {
+    email: 'john@example.com',
+    hobbies: ['Reading', 'Coding', 'Hiking'],
+    address: {
+      street: '123 Main St',
+      city: 'Anytown'
+    }
+  },
+  notes: [
+    'Note 1',
+    { info: 'Additional Info' }
+  ]
+}
+*/
+
+```
+
+### Summary
+
+* **Purpose**: The function cleans up a data structure by removing extra spaces from all string values.
+* **Recursion**: It processes nested objects and arrays recursively.
+* **Type Safety**: By using generics, it ensures that the output retains the same type as the input.
+
+This documentation can be used as part of your project's documentation to explain the purpose, functionality, and usage of the `trimStringsStructure` function.
