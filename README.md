@@ -1227,4 +1227,48 @@ console.log(trimmedData);
 * **Recursion**: It processes nested objects and arrays recursively.
 * **Type Safety**: By using generics, it ensures that the output retains the same type as the input.
 
-This documentation can be used as part of your project's documentation to explain the purpose, functionality, and usage of the `trimStringsStructure` function.
+***
+
+### useWindowSize
+
+The `useWindowSize` hook is a custom React hook designed to track and provide the current dimensions of the browser window. When you use this hook, it returns
+an object containing the window's width and height.
+
+**How It Works:**
+
+* **Initial State:**  
+  The hook initializes the state with the current `window.innerWidth` and `window.innerHeight`.
+
+* **Effect Hook:**  
+  Inside a `useEffect` hook, an event listener is added to the `resize` event of the window. This listener calls a function (`handleResize`) every time the
+  window is resized.
+
+* **State Update:**  
+  The `handleResize` function updates the state with the new window dimensions by calling `setWindowSize`.
+
+* **Cleanup:**  
+  The effect returns a cleanup function that removes the `resize` event listener when the component using this hook is unmounted, preventing memory leaks.
+
+### Example Usage
+
+Below is an example of a functional component that uses the `useWindowSize` hook to display the current window dimensions.
+
+```tsx
+'use client';
+
+import { useWindowSize } from 'react-tesna-utils';
+
+const WindowSizeDisplay = () => {
+  const { width, height } = useWindowSize();
+
+  return (
+    <div style={{ padding: '20px', textAlign: 'center' }}>
+      <h1>Window Size</h1>
+      <p>Width: {width}px</p>
+      <p>Height: {height}px</p>
+    </div>
+  );
+};
+
+export default WindowSizeDisplay;
+```

@@ -1,34 +1,35 @@
-export {fn_deadline} from './fn_deadline';
-export {formatCadNumber} from './format-cad-number';
-export {formatNumber} from './format-number';
-export {formatPhoneNumber} from './format-phone-number';
-export {getBase64} from './get-base64';
-export {getChunksFromString} from './get-chunks-from-string';
-export {isNumber} from './is-number';
-export {isValidEmail} from './is-valid-email';
-export {isValidNationalCode} from './is-valid-national-code';
-export {toCapitalize} from './to-capitalize';
-export {toEnDigit} from './to-en-digit';
-export {truncatedMiddleText} from './truncated-middle-text';
-export {isJson} from './is-json';
-export {removeEmptyKeys} from './remove-empty-keys';
-export {ONE_SECOND, ONE_MINUTE, ONE_HOUR, ONE_DAY} from './const-time';
-export {convertTimeToMilliseconds} from './convert-time-to-milliseconds';
-export {enterFullScreen, exitFullScreen} from './handle-full-screen';
-export {isArrayEqual} from './is-array-equal';
-export {generateRandomNumber} from './generate-random-number';
-export {wait} from './wait';
-export {isContainsPersianCharacter} from './is-contains-persian-character';
-export {isAllPersianCharacters} from './is-all-persian-characters';
-export {isContainsEnglishCharacter} from './is-contains-english-character';
-export {isAllEnglishCharacters} from './is-all-english-characters';
-export {removeNullsFromArray} from './remove-nulls-from-array';
-export {trimStringsStructure} from './trim-strings-structure';
-export {toLowercase} from './to-lowercase';
-export {deepCompareAndRemove} from './deep-compare-and-remove';
-export {copyToClipboard} from './use-copy';
-export {useKeyPress} from './use-key-press';
-export {getMobileOperator} from './get-mobile-operator';
-export {convertColor} from './convert-color';
-export {composeRef} from './compose-ref';
-export {default as useLockBodyScroll} from './use-lock-body-scroll';
+export { fn_deadline } from './fn_deadline'
+export { formatCadNumber } from './format-cad-number'
+export { formatNumber } from './format-number'
+export { formatPhoneNumber } from './format-phone-number'
+export { getBase64 } from './get-base64'
+export { getChunksFromString } from './get-chunks-from-string'
+export { isNumber } from './is-number'
+export { isValidEmail } from './is-valid-email'
+export { isValidNationalCode } from './is-valid-national-code'
+export { toCapitalize } from './to-capitalize'
+export { toEnDigit } from './to-en-digit'
+export { truncatedMiddleText } from './truncated-middle-text'
+export { isJson } from './is-json'
+export { removeEmptyKeys } from './remove-empty-keys'
+export { ONE_SECOND, ONE_MINUTE, ONE_HOUR, ONE_DAY } from './const-time'
+export { convertTimeToMilliseconds } from './convert-time-to-milliseconds'
+export { enterFullScreen, exitFullScreen } from './handle-full-screen'
+export { isArrayEqual } from './is-array-equal'
+export { generateRandomNumber } from './generate-random-number'
+export { wait } from './wait'
+export { isContainsPersianCharacter } from './is-contains-persian-character'
+export { isAllPersianCharacters } from './is-all-persian-characters'
+export { isContainsEnglishCharacter } from './is-contains-english-character'
+export { isAllEnglishCharacters } from './is-all-english-characters'
+export { removeNullsFromArray } from './remove-nulls-from-array'
+export { trimStringsStructure } from './trim-strings-structure'
+export { toLowercase } from './to-lowercase'
+export { deepCompareAndRemove } from './deep-compare-and-remove'
+export { useCopy } from './use-copy'
+export { useKeyPress } from './use-key-press'
+export { getMobileOperator } from './get-mobile-operator'
+export { convertColor } from './convert-color'
+export { composeRef } from './compose-ref'
+export { useWindowSize } from './use-window-size'
+export { default as useLockBodyScroll } from './use-lock-body-scroll'
