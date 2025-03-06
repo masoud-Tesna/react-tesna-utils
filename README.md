@@ -1023,9 +1023,73 @@ const darkerColor = convertColor(originalColor, -10);
 console.log(darkerColor); // Output might be: "#5c8ab8"
 ```
 
-- `keys` - An array of key names (case-insensitive) that should be pressed to trigger the callback
-- `callback` - The function to be executed when specified keys are pressed.
+***
 
-## Returns
+# `composeRef`
 
-- `void` - This hook does not return anything.
+`composeRef` is a function that merges multiple refs into a single ref callback. This is useful when you need to assign the same DOM element or component
+instance to more than one ref (e.g., an external ref and a local ref within a component).
+
+* It filters out any falsy refs from the input.
+* If only one valid ref remains, it returns that ref.
+* Otherwise, it returns a new ref callback that, when invoked, assigns the provided node to all the refs using the fillRef function.
+
+## Example Usage
+
+The following example demonstrates how to use composeRef in a functional component with forwardRef:
+
+```typescript
+import React, {useRef, forwardRef} from 'react';
+import {composeRef} from 'react-tesna-utils';
+
+interface MyInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+}
+
+// A custom input component that supports both internal and external refs.
+const MyInput = forwardRef<HTMLInputElement, MyInputProps>((props, ref) => {
+  // Internal ref for internal operations.
+  const localRef = useRef<HTMLInputElement>(null);
+
+  // Combine the external ref and the internal ref.
+  const combinedRef = composeRef(ref, localRef);
+
+  return <input ref = {combinedRef}
+  {...
+    props
+  }
+  />;
+});
+
+const ParentComponent = () => {
+  // External ref that will be passed to MyInput.
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const focusInput = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  return (
+    <div>
+      <MyInput ref = {inputRef}
+  placeholder = "Click the button to focus me" / >
+  <button onClick = {focusInput} > Focus
+  Input < /button>
+  < /div>
+)
+  ;
+};
+
+export default ParentComponent;
+```
+
+### Explanation
+
+* #### MyInput Component:
+    * Use forwardRef to allow passing an external ref.
+    * Define a local ref (localRef) for internal operations.
+    * Combines both refs using composeRef so that when the input mounts, both refs are updated with the DOM node
+* #### ParentComponent:
+    * Creates an external ref (inputRef) and passes it to MyInput.
+    * Use a button to trigger focus on the input by accessing the DOM node via inputRef.
