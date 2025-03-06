@@ -1038,7 +1038,7 @@ instance to more than one ref (e.g., an external ref and a local ref within a co
 
 The following example demonstrates how to use composeRef in a functional component with forwardRef:
 
-```typescript
+```tsx
 import React, {useRef, forwardRef} from 'react';
 import {composeRef} from 'react-tesna-utils';
 
@@ -1053,11 +1053,7 @@ const MyInput = forwardRef<HTMLInputElement, MyInputProps>((props, ref) => {
   // Combine the external ref and the internal ref.
   const combinedRef = composeRef(ref, localRef);
 
-  return <input ref = {combinedRef}
-  {...
-    props
-  }
-  />;
+  return <input ref={combinedRef} {...props} />;
 });
 
 const ParentComponent = () => {
@@ -1072,16 +1068,14 @@ const ParentComponent = () => {
 
   return (
     <div>
-      <MyInput ref = {inputRef}
-  placeholder = "Click the button to focus me" / >
-  <button onClick = {focusInput} > Focus
-  Input < /button>
-  < /div>
-)
-  ;
+      <MyInput ref={inputRef} placeholder="Click the button to focus me" />
+      <button onClick={focusInput}>Focus Input</button>
+    </div>
+  );
 };
 
 export default ParentComponent;
+
 ```
 
 ### Explanation
@@ -1093,3 +1087,60 @@ export default ParentComponent;
 * #### ParentComponent:
     * Creates an external ref (inputRef) and passes it to MyInput.
     * Use a button to trigger focus on the input by accessing the DOM node via inputRef.
+
+***
+
+# `enterFullScreen` And `exitFullScreen`
+
+### `enterFullScreen`
+
+**Purpose:**  
+This function is designed to switch a specified HTML element into full-screen mode. It checks for various browser-specific implementations of the full-screen
+API to ensure cross-browser compatibility.
+
+**How It Works:**
+
+* **Standard Method:**  
+  If the element supports the standard `requestFullscreen` method, it calls it.
+* **Firefox Support:**  
+  If the element does not support the standard method, it checks for Firefox’s alternative `mozRequestFullScreen` method.
+* **Chrome, Safari & Opera Support:**  
+  For browsers like Chrome, Safari, and Opera, it checks for `webkitRequestFullscreen`.
+* **IE/Edge Support:**  
+  Lastly, it checks for the `msRequestFullscreen` method used by IE/Edge.
+
+**Example Usage:**
+
+```typescript
+import {enterFullScreen} from 'react-tesna-utils';
+// Assume you have an HTML element you want to display in full-screen mode.
+const videoElement = document.getElementById('myVideo') as HTMLElement;
+enterFullScreen(videoElement);
+```
+
+In this example, when `enterFullScreen(videoElement)` is called, the function will attempt to make the `videoElement` display in full-screen mode using the
+appropriate method based on the browser being used.
+
+### `exitFullScreen`
+
+**Purpose:**  
+This function is used to exit full-screen mode. It similarly handles cross-browser compatibility by checking which method is available on the document object.
+
+**How It Works:**
+
+* **Standard Method:**  
+  If the document supports the standard `exitFullscreen` method, it is called to exit full-screen mode.
+* **Firefox Support:**  
+  If not available, it checks for Firefox’s alternative `mozCancelFullScreen`.
+* **Chrome, Safari & Opera Support:**  
+  It then checks for `webkitExitFullscreen` for browsers like Chrome, Safari, and Opera.
+* **IE/Edge Support:**  
+  Finally, it checks for `msExitFullscreen` for IE/Edge.
+
+**Example Usage:**
+
+```typescript
+import {exitFullScreen} from 'react-tesna-utils';
+// When you want to exit full-screen mode, simply call the function.
+exitFullScreen();
+```
