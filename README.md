@@ -168,7 +168,8 @@ const handleFile = async (file: File) => {
   try {
     const base64String = await getBase64(file);
     console.log('Base64:', base64String);
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Error converting file to Base64:', error);
   }
 };
@@ -859,18 +860,18 @@ By default it uses body element of script's parent window.
 ## Usage
 
 ```jsx
-import {useLockBodyScroll} from 'react-tesna-utils';
-import {useState} from 'react';
+import { useLockBodyScroll } from 'react-tesna-utils';
+import { useState } from 'react';
 
 const Demo = () => {
-  const [locked, setLocked] = useState(false)
-
+  const [ locked, setLocked ] = useState(false)
+  
   useLockBodyScroll(locked);
-
+  
   return (
     <div>
-      <button onClick={() => setLocked(current => !current)}>
-        {locked ? 'Unlock' : 'Lock'}
+      <button onClick={ () => setLocked(current => !current) }>
+        { locked ? 'Unlock' : 'Lock' }
       </button>
     </div>
   );
@@ -896,19 +897,19 @@ case-insensitive matching and handles cases like key holding or focus loss to en
 ## Usage
 
 ```jsx
-import {useKeyPress} from 'react-tesna-utils';
-import {useState} from 'react';
+import { useKeyPress } from 'react-tesna-utils';
+import { useState } from 'react';
 
 const Demo = () => {
-  const [didKeyPress, setDidKeyPress] = useState(false);
-  useKeyPress(['Control', 'Shift', 'A'], (e) => {
+  const [ didKeyPress, setDidKeyPress ] = useState(false);
+  useKeyPress([ 'Control', 'Shift', 'A' ], (e) => {
     setDidKeyPress(true);
   });
-
+  
   return (
     <div>
       <p>Press Control + Shift + A</p>
-      {didKeyPress && <p>{`You pressed : Control + Shift + A`}</p>}
+      { didKeyPress && <p>{ `You pressed : Control + Shift + A` }</p> }
     </div>
   );
 };
@@ -923,7 +924,7 @@ const Demo = () => {
 
 ***
 
-# `mobileOperators`
+# `getMobileOperator`
 
 This is a TypeScript function that takes an Iranian mobile number as input and identifies the corresponding mobile operator by examining
 the number's prefix. If the prefix matches one of the predefined mappings, the function returns the operator's name (e.g., Hamrah Aval, Irancell,
@@ -961,7 +962,7 @@ The following mappings are defined in the example:
 ## Usage
 
 ```jsx
-import {getMobileOperator} from 'react-tesna-utils';
+import { getMobileOperator } from 'react-tesna-utils';
 
 console.log(getMobileOperator("09121234567")); // Hamrah Aval
 console.log(getMobileOperator("+989351234567")); // Irancell
@@ -969,3 +970,62 @@ console.log(getMobileOperator("09211234567")); // Rightel
 console.log(getMobileOperator("09001234567")); // Unknown operator or Invalid mobile number
 // ;
 ```
+
+***
+
+# `convertColor`
+
+The `convertColor` function adjusts the brightness of a hex color string by a given percentage. It takes a hex color (e.g., `#aabbcc`) and increases or
+decreases its brightness based on the provided percentage. A positive percentage brightens the color, while a negative percentage darkens it. The function
+ensures that the resulting RGB values do not exceed 255.
+
+## Parameters
+
+- ### color: `string`
+  A string representing the color in hex format (e.g., `#ff0000` for red). The function assumes the color string starts with a hash (`#`) followed by six
+  hexadecimal characters.
+- ### percent: `number`
+  A number indicating the percentage by which to adjust the brightness. A positive value increases brightness, while a negative value decreases it.
+
+## Return Value
+
+- ### Returns: `string`
+  A new hex color string in the format `#RRGGBB` representing the adjusted color.
+
+## How It Works
+
+1. #### Hex to Decimal Conversion:
+   The function extracts the red, green, and blue components from the input hex string and converts them into decimal numbers.
+
+2. #### Brightness Adjustment:
+   Each color component is scaled by (100 + percent) / 100 and then rounded to the nearest integer. The value is capped at 255 using Math.min to avoid exceeding
+   the maximum RGB value.
+
+3. #### Decimal to Hex Conversion:
+   The adjusted decimal values are converted back into two-character hexadecimal strings using a helper function. The padStart method is used to ensure each
+   component is represented by exactly two digits.
+
+4. #### Return New Color:
+   The function then concatenates the new hex values with a leading # and returns the resulting hex color string.
+
+## Usage
+
+```jsx
+import { convertColor } from 'react-tesna-utils';
+
+// Example: Increase brightness by 20%
+const originalColor = "#6699cc";
+const adjustedColor = convertColor(originalColor, 20);
+console.log(adjustedColor); // Output might be: "#7ab0e0"
+
+// Example: Decrease brightness by 10%
+const darkerColor = convertColor(originalColor, -10);
+console.log(darkerColor); // Output might be: "#5c8ab8"
+```
+
+- `keys` - An array of key names (case-insensitive) that should be pressed to trigger the callback
+- `callback` - The function to be executed when specified keys are pressed.
+
+## Returns
+
+- `void` - This hook does not return anything.
