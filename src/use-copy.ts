@@ -13,9 +13,7 @@ export const useCopy = () => {
     }
   }
 
-  useEffect(() => {
-    return () => clearCopyTimeout()
-  }, [])
+  useEffect(() => () => clearCopyTimeout(), [])
 
   const copyText = async (text: string) => {
     setIsCopyLoading(true)
@@ -26,9 +24,11 @@ export const useCopy = () => {
         clearCopyTimeout()
         timeoutRef.current = setTimeout(() => setIsCopied(false), 2000)
       }
-    } catch (error) {
+    }
+    catch (error) {
       console.error('Error copying text:', error)
-    } finally {
+    }
+    finally {
       setIsCopyLoading(false)
     }
   }
@@ -53,7 +53,8 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     }
     await navigator.clipboard.writeText(text)
     return true
-  } catch (error) {
+  }
+  catch (error) {
     console.error('Failed to copy text to clipboard:', error)
     return false
   }
