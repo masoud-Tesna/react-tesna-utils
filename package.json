@@ -39,6 +39,9 @@
   },
   "author": "Masoud bayat",
   "license": "MIT",
+  "engines": {
+    "node": ">=16"
+  },
   "peerDependencies": {
     "react": "^18 || ^19"
   },
