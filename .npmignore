@@ -1,0 +1,27 @@
+# Development folders
+node_modules
+src
+test
+tests
+__tests__
+
+# Config files and dev tools
+.eslintrc
+.eslintignore
+.prettierrc
+.prettierrc.json
+tsconfig.json
+jest.config.js
+.vscode
+.env
+.env.local
+
+#Logs and cache
+*.log
+*.tsbuildinfo
+.cache
+
+# Files that NPM itself manages or should not be plotted
+.npmignore
+.gitignore
+package-lock.json

@@ -6,13 +6,21 @@
     "outDir": "./dist",
     "declaration": true,
     "declarationDir": "./dist",
-    "module": "commonjs",
-    "target": "es2017"
+    "removeComments": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "sourceMap": false,
+    "declarationMap": false,
+    "target": "es2017",
+    "module": "commonjs"
   },
   "include": [
     "src/**/*"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "**/*.test.ts",
+    "**/*.spec.ts"
   ]
 }
