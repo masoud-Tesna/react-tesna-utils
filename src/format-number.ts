@@ -1,6 +1,7 @@
-export const formatNumber = (number: number) => {
+export const formatNumber = (number: number, options?: Intl.NumberFormatOptions) => {
   return number.toLocaleString(undefined, {
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 10
+    ...options,
+    minimumFractionDigits: options?.minimumFractionDigits || 0,
+    maximumFractionDigits: options?.maximumFractionDigits || 10
   });
 };
